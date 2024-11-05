@@ -24,5 +24,30 @@ namespace PROG2500_A2_Chinook
         {
             InitializeComponent();
         }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Artists_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Genre_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Album_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Tracks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
