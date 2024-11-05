@@ -27,27 +27,28 @@ namespace PROG2500_A2_Chinook
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-
+            //Navigate to the HomePage 
+            
         }
 
         private void Artists_Click(object sender, RoutedEventArgs e)
         {
-
+            //Navigate to the ArtistsPage
         }
 
         private void Genre_Click(object sender, RoutedEventArgs e)
         {
-
+            //Navigate to the GenrePage
         }
 
         private void Album_Click(object sender, RoutedEventArgs e)
         {
-
+            //Navigate to the AlbumPage
         }
 
         private void Tracks_Click(object sender, RoutedEventArgs e)
         {
-
+            //Navigate to the TracksPage
         }
     }
 }
