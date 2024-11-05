@@ -57,6 +57,6 @@
                 </Button>
             </StackPanel>
         </ToolBar>
-
+        <Frame x:Name="mainFrame" DockPanel.Dock="Bottom" Width="Auto" Height="Auto" NavigationUIVisibility="Hidden"></Frame>
     </DockPanel>
 </Window>
