@@ -29,27 +29,27 @@
                 </MenuItem>
                 <!-- Artists -->
                 <MenuItem x:Name="Artists" Header="_Artists" Click="Artists_Click">
-                    <MenuItem>
+                    <MenuItem.Icon>
                         <Image Source="{StaticResource artistsImage}"></Image>
-                    </MenuItem>
+                    </MenuItem.Icon>
                 </MenuItem >
                 <!-- Genre -->
                 <MenuItem x:Name="Genre" Header="_Genre" Click="Genre_Click">
-                    <MenuItem>
+                    <MenuItem.Icon>
                         <Image Source="{StaticResource genreImage}"></Image>
-                    </MenuItem>
+                    </MenuItem.Icon>
                 </MenuItem>
                 <!-- Album -->
                 <MenuItem x:Name="Album" Header="_Album" Click="Album_Click">
-                    <MenuItem>
+                    <MenuItem.Icon>
                         <Image Source="{StaticResource albumImage}"></Image>
-                    </MenuItem>
+                    </MenuItem.Icon>
                 </MenuItem>
                 <!-- Tracks -->
                 <MenuItem x:Name="Tracks" Header="_Tracks" Click="Tracks_Click">
-                    <MenuItem>
+                    <MenuItem.Icon>
                         <Image Source="{StaticResource tracksImage}"></Image>
-                    </MenuItem>
+                    </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
