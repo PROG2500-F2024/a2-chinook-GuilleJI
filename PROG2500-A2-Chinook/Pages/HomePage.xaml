@@ -9,6 +9,6 @@
       Title="HomePage">
 
     <StackPanel>
-        <TextBlock Text="HOME PAGE" FontSize="30"></TextBlock>
+        <TextBlock Text="HOME PAGE" FontSize="31"></TextBlock>
     </StackPanel>
 </Page>
