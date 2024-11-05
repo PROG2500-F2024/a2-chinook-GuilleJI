@@ -6,7 +6,57 @@
         xmlns:local="clr-namespace:PROG2500_A2_Chinook"
         mc:Ignorable="d"
         Title="Chinook Music Store" Height="650" Width="900">
-    <Grid>
+    <DockPanel>
+        <!-- Menu -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Pages">
+                <!-- Home -->
+                <MenuItem x:Name="Home" Header="_Home">
+                    <MenuItem>
+                        <Image></Image>
+                    </MenuItem>
+                </MenuItem>
+                <!-- Artists -->
+                <MenuItem x:Name="Artists" Header="_Artists">
+                    <MenuItem>
+                        <Image></Image>
+                    </MenuItem>
+                </MenuItem >
+                <!-- Genre -->
+                <MenuItem x:Name="Genre" Header="_Genre">
+                    <MenuItem>
+                        <Image></Image>
+                    </MenuItem>
+                </MenuItem>
+                <!-- Tracks -->
+                <MenuItem x:Name="Tracks" Header="_Tracks">
+                    <MenuItem>
+                        <Image></Image>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <!-- Sidebar Toolbar -->
+        <ToolBar DockPanel.Dock="Left">
+            <StackPanel Orientation="Vertical" Width="50">
+                <!-- Home Button -->
+                <Button x:Name="HomeButton" ToolTip="Go to Homepage">
+                    
+                </Button>
+                <!-- Artists Button -->
+                <Button x:Name="ArtistsButton" ToolTip="View Artists">
+                    
+                </Button>
+                <!-- Genre Button -->
+                <Button x:Name="GenreButton" ToolTip="View Genre list">
+                    
+                </Button>
+                <!-- Tracks Button -->
+                <Button x:Name="TracksButton" ToolTip="View Tracks">
+                    
+                </Button>
+            </StackPanel>
+        </ToolBar>
 
-    </Grid>
+    </DockPanel>
 </Window>
