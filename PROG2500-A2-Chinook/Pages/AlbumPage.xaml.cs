@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using PROG2500_A2_Chinook.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,20 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class AlbumPage : Page
     {
+        ChinookContext context = new ChinookContext();
+        CollectionViewSource albumsViewSource = new CollectionViewSource();
         public AlbumPage()
         {
             InitializeComponent();
+
+            //Tie the markup viewsource object to the C# code viewsource object
+            albumsViewSource = (CollectionViewSource)FindResource(nameof(albumsViewSource));
+
+            //Use the dbContext to tell EntityFramework to load the data to use on this page
+            context.Albums.Load();
+
+            //Set the viewsource data source to use the albums data collection (dbset)
+            albumsViewSource.Source = context.Albums.Local.ToObservableCollection();
         }
     }
 }

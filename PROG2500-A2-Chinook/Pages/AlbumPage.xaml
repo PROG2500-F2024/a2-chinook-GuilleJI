@@ -8,7 +8,19 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AlbumPage">
 
+    <Page.Resources>
+        <CollectionViewSource x:Key="albumsViewSource"></CollectionViewSource>
+    </Page.Resources>
+    
     <StackPanel>
-        <TextBlock Text="ALBUM PAGE" FontSize="30"></TextBlock>
+        <TextBlock Text="Chinook Album List" FontSize="30"></TextBlock>
+        <ListView ItemsSource="{Binding Source={StaticResource albumsViewSource}}" Height="400">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding AlbumId}" Header="ID"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Album Name"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </StackPanel>
 </Page>
