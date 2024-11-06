@@ -8,7 +8,19 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GenrePage">
 
+    <Page.Resources>
+        <CollectionViewSource x:Key="genreViewSource"></CollectionViewSource>
+    </Page.Resources>
+
     <StackPanel>
-        <TextBlock Text="GENRE PAGE" FontSize="30"></TextBlock>
+        <TextBlock Text="Chinook Genre List" FontSize="30"></TextBlock>
+        <ListView ItemsSource="{Binding Source={StaticResource genreViewSource}}" Height="400">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding GenreId}" Header="ID"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Genre"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </StackPanel>
 </Page>
