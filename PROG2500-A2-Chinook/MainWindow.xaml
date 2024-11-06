@@ -53,6 +53,8 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+        <!-- Header -->
+        <TextBlock DockPanel.Dock="Top" Text="Welcome to Chinook Music Store! Where Every Note Strikes a Chord" FontSize="21" FontWeight="DemiBold" Margin="0,10,0,10" Background="CornflowerBlue" Foreground="White" TextAlignment="Center"></TextBlock>
         <!-- Sidebar Toolbar -->
         <ToolBar DockPanel.Dock="Left">
             <StackPanel Orientation="Vertical" Width="50">

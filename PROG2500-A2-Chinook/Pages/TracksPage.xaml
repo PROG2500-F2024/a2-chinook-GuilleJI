@@ -14,8 +14,8 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="Coral" Offset="0"/>
-                        <GradientStop Color="Chartreuse" Offset="1"/>
+                        <GradientStop Color="LightSteelBlue" Offset="0"/>
+                        <GradientStop Color="WhiteSmoke" Offset="1"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -33,14 +33,14 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelBackgroundStyle}">
-                                <StackPanel Orientation="Vertical" Width="650">
+                                <StackPanel Orientation="Vertical" Width="660">
                                     <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18"></TextBlock>
                                     <TextBlock>
                                     <Run Text="Composer:" />
                                     <Run Text="{Binding Composer}" />           
                                     </TextBlock>
                                 </StackPanel>
-                                <StackPanel Orientation="Vertical" Width="115">
+                                <StackPanel Orientation="Vertical" Width="135">
                                     <TextBlock>
                                     <Run Text="Length:" />
                                     <Run Text="{Binding Milliseconds}" />

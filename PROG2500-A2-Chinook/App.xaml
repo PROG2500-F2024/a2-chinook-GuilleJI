@@ -5,12 +5,11 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="Background" Value="AliceBlue"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
         </Style>
         <Style x:Key="listViewTitle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="Background" Value="LightGreen"></Setter>
+            <Setter Property="Background" Value="LightBlue" ></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
         </Style>
          
