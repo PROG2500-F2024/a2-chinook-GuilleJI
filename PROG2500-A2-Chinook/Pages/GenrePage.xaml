@@ -13,12 +13,17 @@
     </Page.Resources>
 
     <StackPanel>
-        <TextBlock Text="Chinook Genre List" FontSize="30"></TextBlock>
-        <ListView ItemsSource="{Binding Source={StaticResource genreViewSource}}" Height="400">
+        <!--<TextBlock Text="Chinook Genre List" FontSize="30"></TextBlock>-->
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Chinook Genre List" FontFamily="serif" FontWeight="Bold"></Label>
+            <Label Content="Search Genre:" FontFamily="serif"></Label>
+            <TextBox x:Name="textSearch" Width="300" FontSize="15" TextChanged="textSearch_TextChanged" Height="20"></TextBox>
+        </StackPanel>
+        <ListView x:Name="listGenreSearchResults" ScrollViewer.CanContentScroll="True" Height="400">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding GenreId}" Header="ID"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Genre"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding GenreId}" Header="ID" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Genre" Width="710"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -22,7 +22,7 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class GenrePage : Page
     {
-        ChinookContext context = new ChinookContext();
+        private ChinookContext _context = new ChinookContext();
         CollectionViewSource genreViewSource = new CollectionViewSource();
         public GenrePage()
         {
@@ -32,10 +32,24 @@ namespace PROG2500_A2_Chinook.Pages
             genreViewSource = (CollectionViewSource)FindResource(nameof(genreViewSource));
 
             //Use the dbContext to tell EntityFramework to load the data to use on this page
-            context.Genres.Load();
+            _context.Genres.Load();
 
             //Set the viewsource data source to use the genre data collection (dbset)
-            genreViewSource.Source = context.Genres.Local.ToObservableCollection();
+            genreViewSource.Source = _context.Genres.Local.ToObservableCollection();
+
+            //Bind the intial list of genres to the listbox
+            listGenreSearchResults.ItemsSource = _context.Genres.Local.ToObservableCollection();
+        }
+
+        private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //Linq
+            //Defining our LINQ query
+            var query =
+               _context.Genres.Where(genre => genre.Name.Contains(textSearch.Text)).OrderBy(genre => genre.GenreId).ToList();
+
+            //Update the listbox with the results of the query
+            listGenreSearchResults.ItemsSource = query;
         }
     }
 }
