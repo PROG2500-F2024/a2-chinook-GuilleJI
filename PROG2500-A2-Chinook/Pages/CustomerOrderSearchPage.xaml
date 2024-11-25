@@ -37,7 +37,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelBackgroundStyle}">
-                            
+
                             <StackPanel Orientation="Vertical" Width="660">
                                 <TextBlock FontWeight="Bold" FontSize="18">
                                     <Run Text="{Binding LastName}" />
@@ -46,7 +46,7 @@
                                     <!-- Second Level listview is for the Invoice -->
                                     <Expander Header="View Invoice"></Expander>
                                 </TextBlock>
-                                
+
                                 <TextBlock>
                                     <Run Text="{ Binding City}" />
                                 </TextBlock>
@@ -57,7 +57,7 @@
                                     <Run Text="{ Binding Email }" />
                                 </TextBlock>
                             </StackPanel>
-                            
+
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
