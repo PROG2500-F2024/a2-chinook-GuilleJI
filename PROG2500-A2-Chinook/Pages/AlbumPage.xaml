@@ -13,12 +13,16 @@
     </Page.Resources>
     
     <StackPanel>
-        <TextBlock Text="Chinook Album List" FontSize="30"></TextBlock>
-        <ListView ItemsSource="{Binding Source={StaticResource albumsViewSource}}" Height="400">
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Chinook Albums" FontFamily="serif" FontWeight="Bold"></Label>
+            <Label Content="Search Album:" FontFamily="serif"></Label>
+            <TextBox x:Name="textSearch" Width="300" FontSize="15" TextChanged="textSearch_TextChanged" Height="20"></TextBox>
+        </StackPanel>
+        <ListView x:Name="listAlbumSearchResults" ScrollViewer.CanContentScroll="True" Height="420">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding AlbumId}" Header="ID"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Album Name"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding AlbumId}" Header="ID" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Album Name" Width="710"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -22,7 +22,7 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class AlbumPage : Page
     {
-        ChinookContext context = new ChinookContext();
+        private ChinookContext _context = new ChinookContext();
         CollectionViewSource albumsViewSource = new CollectionViewSource();
         public AlbumPage()
         {
@@ -32,10 +32,24 @@ namespace PROG2500_A2_Chinook.Pages
             albumsViewSource = (CollectionViewSource)FindResource(nameof(albumsViewSource));
 
             //Use the dbContext to tell EntityFramework to load the data to use on this page
-            context.Albums.Load();
+            _context.Albums.Load();
 
             //Set the viewsource data source to use the albums data collection (dbset)
-            albumsViewSource.Source = context.Albums.Local.ToObservableCollection();
+            albumsViewSource.Source = _context.Albums.Local.ToObservableCollection();
+
+            // Bind the initial list of albums to the listbox
+            listAlbumSearchResults.ItemsSource = _context.Albums.Local.ToObservableCollection();
+        }
+
+        private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //Linq
+            //Defining out LINQ query
+            var query =
+                _context.Albums.Where(album => album.Title.Contains(textSearch.Text)).OrderBy(album => album.AlbumId).ToList();
+
+            //Update the listbox with the results of the query
+            listAlbumSearchResults.ItemsSource = query;
         }
     }
 }
