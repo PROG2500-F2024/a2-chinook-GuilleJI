@@ -21,7 +21,7 @@
             <!--<TextBox x:Name="textSearch" Width="300" FontSize="24"></TextBox>-->
             <!--<Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click"></Button>-->
         </StackPanel>
-        <!--<Label x:Name="labelResults"></Label>-->
+        <Label x:Name="labelResults"></Label>
         <!--<ListView ItemsSource="{Binding Source={StaticResource artistViewSource}}" Height="400">
             <ListView.View>
                 <GridView>

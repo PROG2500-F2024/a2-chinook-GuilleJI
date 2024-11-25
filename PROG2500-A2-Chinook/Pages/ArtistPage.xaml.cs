@@ -35,6 +35,10 @@ namespace PROG2500_A2_Chinook.Pages
 
             //Set the viewsource data source to use the artist data collection (dbset)
             artistViewSource.Source = _context.Artists.Local.ToObservableCollection();
+
+            // Bind the initial list of artists to the listbox
+            listArtistSearchResults.ItemsSource = _context.Artists.Local.ToObservableCollection();
+
         }
 
         //private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -63,25 +67,13 @@ namespace PROG2500_A2_Chinook.Pages
         private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             //Linq 
-            //Relieve a single value, to put in a single label. 
             //Defining out LINQ query
-            //var query =
-            //    from artist in _context.Artists
-            //    where artist.Name.Contains(textSearch.Text)
-            //    orderby artist.Name
-            //    select artist;
-
-            //labelResults.Content = query.FirstOrDefault();
-            //listArtistSearchResults.ItemsSource = query.ToList();
-
             var query =
                 _context.Artists.Where(artist => artist.Name.Contains(textSearch.Text)).OrderBy(artist => artist.ArtistId).ToList();
 
-            listArtistSearchResults.Items.Clear();
-            foreach (var artist in query)
-            {
-                listArtistSearchResults.Items.Add(artist);
-            }
+            
+            //Update the ItemsSource of the listbox to the new query results
+            listArtistSearchResults.ItemsSource = query;
         }
     }
 }
