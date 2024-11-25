@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROG2500_A2_Chinook.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,30 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class CustomerOrderSearchPage : Page
     {
+        private ChinookContext _context = new ChinookContext();
+
+        //Create a new instance of the CollectionViewSource class
+        CollectionViewSource customerViewSource = new CollectionViewSource();
         public CustomerOrderSearchPage()
         {
             InitializeComponent();
+
+            //tie the markup viewsource object to the C# code viewsource object
+            customerViewSource = (CollectionViewSource)FindResource(nameof(customerViewSource));
+
+            //Use the dbContext to tell EntityFramework to load the data to use on this page
+            _context.Customers.Load();
+
+            //Set the viewsource data source to use the customers data collection (dbset)
+            customerViewSource.Source = _context.Customers.Local.ToObservableCollection();
+
+            //Bind the initial list of tracks to the listbox
+            listCustomerSearchResults.ItemsSource = _context.Customers.Local.ToObservableCollection();
+        }
+
+        private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

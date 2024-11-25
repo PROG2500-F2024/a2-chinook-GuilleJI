@@ -8,7 +8,48 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CustomerOrderSearchPage">
 
+    <Page.Resources>
+        <CollectionViewSource x:Key="trackViewSource"></CollectionViewSource>
+        <Style x:Key="StackPanelBackgroundStyle" TargetType="StackPanel">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="LightSteelBlue" Offset="0"/>
+                        <GradientStop Color="WhiteSmoke" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+    </Page.Resources>
+
+
     <StackPanel>
-        <TextBlock Text="Chinook Customer Order Search" FontSize="30"></TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Customer Orders" FontFamily="serif" FontWeight="Bold"></Label>
+            <Label Content="Search:"  FontFamily="serif"></Label>
+            <TextBox x:Name="textSearch" Width="300" FontSize="15" TextChanged="textSearch_TextChanged" Height="20"></TextBox>
+        </StackPanel>
+        <ScrollViewer Height="400">
+            <ListView x:Name="CustomerSearchResults" ScrollViewer.CanContentScroll="True" Height="420">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelBackgroundStyle}">
+                            <StackPanel Orientation="Vertical" Width="660">
+                                <TextBlock Text="{}" FontWeight="Bold" FontSize="18"></TextBlock>
+                                <TextBlock>
+                                    <Run Text="Customer: " />
+                                    <Run Text="{}" />
+                                    <Run Text="{}" />
+                                    <Run Text="{}" />
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
     </StackPanel>
 </Page>

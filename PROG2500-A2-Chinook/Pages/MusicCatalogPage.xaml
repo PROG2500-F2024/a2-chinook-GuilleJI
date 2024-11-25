@@ -18,7 +18,7 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
         </Style>
@@ -42,7 +42,7 @@
                             <ListView ItemsSource="{Binding cat}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="100" Width="600">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelBackgroundStyle}">
+                                        <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Name}"></TextBlock>
                                             <!-- Third-level listview is for the Albums for each artist-->
                                             <Expander Header="Show Albums for for each artist">
