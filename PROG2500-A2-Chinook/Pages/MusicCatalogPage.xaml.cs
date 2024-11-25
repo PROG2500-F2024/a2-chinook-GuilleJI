@@ -29,35 +29,46 @@ namespace PROG2500_A2_Chinook.Pages
         public MusicCatalogPage()
         {
             InitializeComponent();
+
             // Set the data context of the page to the ChinookContext
             catalogsViewsource = (CollectionViewSource)FindResource(nameof(catalogsViewsource));
 
 
             //Load data.. from BOTH sets
-            _context.Artists.Load();
-            _context.Albums.Load();
+            _context.Artists.Include(a => a.Albums).Load();
 
-            // Set the source of the CollectionViewSource to the Artists in the ChinookContext
-            catalogsViewsource.Source = _context.Artists.Local.ToObservableCollection();
+            //Group artists by the first letter of their name 
+            var query = 
+                from artist in _context.Artists
+                group artist by artist.Name.ToUpper().Substring(0, 1) into artistGroup
+                select new
+                {
+                    Index = artistGroup.Key,
+                    CatCount = artistGroup.Count(),
+                    cat = artistGroup.ToList()
+                };
+
+            // Set the grouped data as the initial items source
+            catalogsListView.ItemsSource = query.ToList();
         }
 
         private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Define a grouping query to get grouped catalog data
-            var query=
-                from cat in _context.Artists
-                where cat.Name.Contains(textSearch.Text)
-                group cat by cat.Name.ToUpper().Substring(0,1) into catGroup
-                select new
-                {
-                    Index = catGroup.Key,
-                    CatCount = catGroup.Count().ToString(),
-                    cat = catGroup.ToList<Artist>()
+            // Filtering artists based on the search text
+            var query =
+               from artist in _context.Artists
+               where artist.Name.Contains(textSearch.Text)
+               group artist by artist.Name.ToUpper().Substring(0, 1) into artistGroup
+               select new
+               {
+                   Index = artistGroup.Key,
+                   CatCount = artistGroup.Count(),
+                   cat = artistGroup.ToList()
+               };
 
-                };      
-
-            //Execute the query against the db and assign it as the data source for the ListView
+            // Update the ListView ItemsSource with the filtered data
             catalogsListView.ItemsSource = query.ToList();
+            
         }
     }
 }

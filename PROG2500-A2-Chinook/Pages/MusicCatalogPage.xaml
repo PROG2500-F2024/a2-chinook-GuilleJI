@@ -10,7 +10,7 @@
     <Page.Resources>
         <CollectionViewSource x:Key="catalogsViewsource"></CollectionViewSource>
         <Style TargetType="TextBlock">
-            <Setter Property="Margin" Value="12"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
         </Style>
     </Page.Resources>
     <StackPanel>
@@ -21,15 +21,15 @@
         </StackPanel>
         <!-- Top-level listview is for the Grouped artists (by first letter) -->
         <ListView x:Name="catalogsListView"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-            <ListView.ItemTemplate>
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="420">
+            <ListView.ItemTemplate >
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Index}"></TextBlock>
                         <TextBlock Text="{Binding CatCount}"></TextBlock>
                         <!-- Second-level listview is for the artists themselves-->
                         <Expander Header="View Artists">
-                        <ListView ItemsSource="{Binding cat}">
+                            <ListView ItemsSource="{Binding cat}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="200" Width="600">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
