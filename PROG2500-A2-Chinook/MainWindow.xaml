@@ -15,6 +15,8 @@
             <BitmapImage x:Key="genreImage" UriSource="/images/genre.png"></BitmapImage>
             <BitmapImage x:Key="albumImage" UriSource="/images/album.png"></BitmapImage>
             <BitmapImage x:Key="tracksImage" UriSource="/images/tracks.png"></BitmapImage>
+            <BitmapImage x:Key="musicFolder" UriSource="/images/music-folder.png"></BitmapImage>
+            <BitmapImage x:Key="trackOrder" UriSource="/images/track-order.png"></BitmapImage>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
@@ -53,11 +55,15 @@
                 </MenuItem>
                 <!-- Music Catalog -->
                 <MenuItem x:Name="MusicCatalog" Header="_Music Catalog" Click="MusicCatalogButton_Click">
-                    
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource musicFolder}"></Image>
+                    </MenuItem.Icon>
                 </MenuItem>
                 <!-- Customer Order Search Page -->
                 <MenuItem x:Name="CustomerOrderSrchPage" Header="_Customer Order Search Page" Click="CustomerOrderSrchPageButton_Click">
-                    
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource trackOrder}"></Image>
+                    </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
@@ -88,11 +94,11 @@
                 </Button>
                 <!-- Music Catalog Button -->
                 <Button x:Name="MusicCatalogButton" ToolTip="View MusicCatalog" Click="MusicCatalogButton_Click">
-                    
+                    <Image Source="{StaticResource musicFolder}"></Image>
                 </Button>
                 <!-- Customer Order Search Page -->
                 <Button x:Name="CustomerOrderSrchPageButton" ToolTip="View Customer Order Search Page" Click="CustomerOrderSrchPageButton_Click">
-                    
+                    <Image Source="{StaticResource trackOrder}"></Image>
                 </Button>
             </StackPanel>
         </ToolBar>
