@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PROG2500_A2_Chinook.Data;
+using PROG2500_A2_Chinook.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,14 @@ namespace PROG2500_A2_Chinook.Pages
             var query=
                 from cat in _context.Artists
                 where cat.Name.Contains(textSearch.Text)
-                select cat;
+                group cat by cat.Name.ToUpper().Substring(0,1) into catGroup
+                select new
+                {
+                    Index = catGroup.Key,
+                    CatCount = catGroup.Count().ToString(),
+                    cat = catGroup.ToList<Artist>()
+
+                };      
 
             //Execute the query against the db and assign it as the data source for the ListView
             catalogsListView.ItemsSource = query.ToList();
