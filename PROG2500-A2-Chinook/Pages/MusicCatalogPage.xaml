@@ -10,7 +10,7 @@
     <Page.Resources>
         <CollectionViewSource x:Key="catalogsViewsource"></CollectionViewSource>
         <Style TargetType="TextBlock">
-            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Margin" Value="12"></Setter>
         </Style>
     </Page.Resources>
     <StackPanel>
@@ -19,7 +19,7 @@
             <Label Content="Search Artist:"  FontFamily="serif"></Label>
             <TextBox x:Name="textSearch" Width="300" FontSize="15" TextChanged="textSearch_TextChanged" Height="20"></TextBox>
         </StackPanel>
-        <!-- Top-level listview is for the Grouped categories (by first letter) -->
+        <!-- Top-level listview is for the Grouped artists (by first letter) -->
         <ListView x:Name="catalogsListView"
                   ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
             <ListView.ItemTemplate>
@@ -27,7 +27,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Index}"></TextBlock>
                         <TextBlock Text="{Binding CatCount}"></TextBlock>
-                        <!-- Second-level listview is for the categories themselves-->
+                        <!-- Second-level listview is for the artists themselves-->
                         <Expander Header="View Artists">
                         <ListView ItemsSource="{Binding cat}">
                             <ListView.ItemTemplate>
@@ -35,6 +35,19 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding ArtistId}"></TextBlock>
                                         <TextBlock Text="{Binding Name}"></TextBlock>
+                                            <!-- Third-level listview is for the Albums for each artist-->
+                                            <Expander Header="Show Albums for for each artist">
+                                            <ListView ItemsSource="{Binding Albums}">
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate DataType="local:Albums">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Title}"></TextBlock>
+                                                            <TextBlock Text="{Binding ArtistId}"></TextBlock>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                            </Expander>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
