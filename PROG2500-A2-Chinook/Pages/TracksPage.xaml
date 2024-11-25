@@ -26,10 +26,14 @@
     </Page.Resources>
     
     <StackPanel>
-        <TextBlock Text="TRACKS PAGE" FontSize="30"></TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Chinook Tracks" FontFamily="serif" FontWeight="Bold"></Label>
+            <Label Content="Search Track:"  FontFamily="serif"></Label>
+            <TextBox x:Name="textSearch" Width="300" FontSize="15" TextChanged="textSearch_TextChanged" Height="20"></TextBox>
+        </StackPanel>
         <Expander Header="Data will be located here" IsExpanded="True">
             <ScrollViewer Height="400">
-                <ListView ItemsSource="{Binding Source={StaticResource trackViewSource}}">
+                <ListView x:Name="listTrackSearchResults" ScrollViewer.CanContentScroll="True" Height="420">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelBackgroundStyle}">

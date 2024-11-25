@@ -23,7 +23,7 @@ namespace PROG2500_A2_Chinook.Pages
     public partial class TracksPage : Page
     {
         //Create a new instance of the ChinookContext class 
-        ChinookContext context = new ChinookContext();
+        private ChinookContext _context = new ChinookContext();
 
         // Create a new instance of the CollectionViewSource class
         CollectionViewSource trackViewSource = new CollectionViewSource();
@@ -35,11 +35,25 @@ namespace PROG2500_A2_Chinook.Pages
             trackViewSource = (CollectionViewSource)FindResource(nameof(trackViewSource));
 
             //Use the dbContext to tell EntityFramework to load the data to use on this page 
-            context.Tracks.Load();
+            _context.Tracks.Load();
 
             //Set the viewsource data source to use the tracks data collection (dbset) 
-            trackViewSource.Source = context.Tracks.Local.ToObservableCollection();
+            trackViewSource.Source = _context.Tracks.Local.ToObservableCollection();
 
+            //Bind the initial list of tracks to the listbox
+            listTrackSearchResults.ItemsSource = _context.Tracks.Local.ToObservableCollection();
+
+        }
+
+        private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //Linq
+            //Defining  out LINQ query
+            var query =
+                _context.Tracks.Where(track => track.Name.Contains(textSearch.Text)).OrderBy(track => track.TrackId).ToList();
+
+            //Update the list of tracks in the listbox
+            listTrackSearchResults.ItemsSource = query;
         }
     }
 }
