@@ -38,7 +38,7 @@
                         <TextBlock Text="{Binding Index}"></TextBlock>
                         <TextBlock Text="{Binding CatCount}"></TextBlock>
                         <!-- Second-level listview is for the artists themselves-->
-                        <Expander Header="View Artists">
+                        <Expander Header="View Artists" FontSize="10">
                             <ListView ItemsSource="{Binding cat}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="100" Width="600">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
