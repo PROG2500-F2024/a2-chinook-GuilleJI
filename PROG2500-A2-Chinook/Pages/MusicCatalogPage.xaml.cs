@@ -24,5 +24,10 @@ namespace PROG2500_A2_Chinook.Pages
         {
             InitializeComponent();
         }
+
+        private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

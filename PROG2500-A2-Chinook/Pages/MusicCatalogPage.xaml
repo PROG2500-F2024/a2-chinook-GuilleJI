@@ -9,6 +9,14 @@
       Title="MusicCatalogPage">
 
     <StackPanel>
-        <TextBlock Text="Chinook Music Catalog" FontSize="30"></TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Music Catalog" FontFamily="serif" FontWeight="Bold"></Label>
+            <Label Content="Search Artist:"  FontFamily="serif"></Label>
+            <TextBox x:Name="textSearch" Width="300" FontSize="15" TextChanged="textSearch_TextChanged" Height="20"></TextBox>
+        </StackPanel>
+        <ListView>
+            
+        </ListView>
+        
     </StackPanel>
 </Page>
