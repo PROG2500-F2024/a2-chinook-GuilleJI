@@ -7,14 +7,25 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MusicCatalogPage">
-
+    <Page.Resources>
+        <CollectionViewSource x:Key="catalogsViewsource"></CollectionViewSource>
+    </Page.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label Content="Music Catalog" FontFamily="serif" FontWeight="Bold"></Label>
             <Label Content="Search Artist:"  FontFamily="serif"></Label>
             <TextBox x:Name="textSearch" Width="300" FontSize="15" TextChanged="textSearch_TextChanged" Height="20"></TextBox>
         </StackPanel>
-        <ListView>
+        <ListView x:Name="catalogsListView"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <TextBlock Text=""></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
             
         </ListView>
         
