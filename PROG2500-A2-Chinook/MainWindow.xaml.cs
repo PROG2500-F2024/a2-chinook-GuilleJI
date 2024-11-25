@@ -20,9 +20,26 @@ namespace PROG2500_A2_Chinook
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+  
+        public Pages.HomePage homePage { get; set; }
+        public Pages.ArtistPage artistPage { get; set; }
+        public Pages.GenrePage genrePage { get; set; }
+        public Pages.AlbumPage albumPage { get; set; }
+        public Pages.TracksPage tracksPage { get; set; }
+        public Pages.MusicCatalogPage musicCatalogPage { get; set; }
+        public Pages.CustomerOrderSearchPage customerOrderSrchPage { get; set; }
+
+
+    public MainWindow()
         {
             InitializeComponent();
+            homePage = new Pages.HomePage();
+            artistPage = new Pages.ArtistPage();
+            genrePage = new Pages.GenrePage();
+            albumPage = new Pages.AlbumPage();
+            tracksPage = new Pages.TracksPage();
+            musicCatalogPage = new Pages.MusicCatalogPage();
+            customerOrderSrchPage = new Pages.CustomerOrderSearchPage();
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -55,6 +72,18 @@ namespace PROG2500_A2_Chinook
         {
             //Navigate to the TracksPage
             mainFrame.NavigationService.Navigate(new Pages.TracksPage());
+        }
+
+        private void MusicCatalogButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Navigate to the MusicCatalogPage
+            mainFrame.NavigationService.Navigate(new Pages.MusicCatalogPage());
+        }
+
+        private void CustomerOrderSrchPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Navigate to the CustomerOrderSearchPage
+            mainFrame.NavigationService.Navigate(new Pages.CustomerOrderSearchPage());
         }
     }
 }

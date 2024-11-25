@@ -51,6 +51,14 @@
                         <Image Source="{StaticResource tracksImage}"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
+                <!-- Music Catalog -->
+                <MenuItem x:Name="MusicCatalog" Header="_Music Catalog" Click="MusicCatalogButton_Click">
+                    
+                </MenuItem>
+                <!-- Customer Order Search Page -->
+                <MenuItem x:Name="CustomerOrderSrchPage" Header="_Customer Order Search Page" Click="CustomerOrderSrchPageButton_Click">
+                    
+                </MenuItem>
             </MenuItem>
         </Menu>
         <!-- Header -->
@@ -77,6 +85,14 @@
                 <!-- Tracks Button -->
                 <Button x:Name="TracksButton" ToolTip="View Tracks" Click="Tracks_Click">
                     <Image Source="{StaticResource tracksImage}"></Image>
+                </Button>
+                <!-- Music Catalog Button -->
+                <Button x:Name="MusicCatalogButton" ToolTip="View MusicCatalog" Click="MusicCatalogButton_Click">
+                    
+                </Button>
+                <!-- Customer Order Search Page -->
+                <Button x:Name="CustomerOrderSrchPageButton" ToolTip="View Customer Order Search Page" Click="CustomerOrderSrchPageButton_Click">
+                    
                 </Button>
             </StackPanel>
         </ToolBar>
