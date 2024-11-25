@@ -41,28 +41,6 @@ namespace PROG2500_A2_Chinook.Pages
 
         }
 
-        //private void btnSearch_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //Linq 
-        //    //Relieve a single value, to put in a single label. 
-        //    //Defining out LINQ query
-        //    //var query =
-        //    //    from artist in _context.Artists
-        //    //    where artist.Name.Contains(textSearch.Text)
-        //    //    orderby artist.Name
-        //    //    select artist;
-
-        //    //labelResults.Content = query.FirstOrDefault();
-        //    //listArtistSearchResults.ItemsSource = query.ToList();
-        //    var query =
-        //        _context.Artists.Where(artist => artist.Name.Contains(textSearch.Text)).OrderBy(artist => artist.ArtistId).ToList();
-
-        //    listArtistSearchResults.Items.Clear();
-        //    foreach (var artist in query)
-        //    {
-        //        listArtistSearchResults.Items.Add(artist);
-        //    }
-        //}
 
         private void textSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
