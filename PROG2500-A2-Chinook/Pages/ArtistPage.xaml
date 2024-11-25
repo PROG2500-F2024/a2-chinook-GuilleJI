@@ -14,6 +14,11 @@
 
     <StackPanel>
         <TextBlock Text="Chinook Artist List" FontSize="30"></TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Search Artist:"></Label>
+            <TextBox x:Name="textSearch" Width="300" FontSize="24"></TextBox>
+            <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click"></Button>
+        </StackPanel>
         <ListView ItemsSource="{Binding Source={StaticResource artistViewSource}}" Height="400">
             <ListView.View>
                 <GridView>

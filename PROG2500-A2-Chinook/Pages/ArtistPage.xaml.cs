@@ -36,5 +36,10 @@ namespace PROG2500_A2_Chinook.Pages
             //Set the viewsource data source to use the artist data collection (dbset)
             artistViewSource.Source = context.Artists.Local.ToObservableCollection();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
